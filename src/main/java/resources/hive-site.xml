@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+
+  <property>
+     
+    <name>lens.server.drivers</name>
+    <value>org.apache.lens.driver.hive.HiveDriver</value>
+  </property>
+
+
+<!--    <property>
+        <name>hive.server2.thrift.port</name>
+        <value>10001</value>
+    </property>
+    <property>
+        <name>hive.server2.thrift.bind.host</name>
+        <value>10.27.178.207</value>
+    </property>-->
+
+    <property> 
+          <name>hive.metastore.uris</name> 
+          <value>thrift://10.27.178.207:9083</value> 
+          <description>Thrift uri for the remote metastore. Used by metastore client to connect to remote metastore.</description>
+    </property> 
+
+    <property>
+        <name>hive.metastore.local</name>
+        <value>false</value>
+    </property>
+
+
+
+
+    <property>
+        <name>hive.server2.async.exec.threads</name>
+        <value>5</value>
+        <description>Number of threads required in async thread pool for query execution in the lens directly. Lens uses
+            query execution directly only to add and delete resources, which are mostly synchronous. So keeping to a lower
+            value.
+        </description>
+    </property>
+
+    <property>
+        <name>hive.server2.log.redirection.enabled</name>
+        <value>false</value>
+        <description>Disable the log direction on the lens server sessions. There are no logs required for each session in
+            lens sessions. This will decrease number of file handles associated to lens server.
+        </description>
+    </property>
+
+    <property>
+        <name>hive.server2.authentication</name>
+        <value>NONE</value>
+        <description>
+            Client authentication types.
+            NONE: no authentication check
+            LDAP: LDAP/AD based authentication
+            KERBEROS: Kerberos/GSSAPI authentication
+            CUSTOM: Custom authentication provider
+            (Use with property hive.server2.custom.authentication.class)
+            PAM: Pluggable authentication module.
+        </description>
+    </property>
+
+    <property>
+        <name>hive.server2.authentication.ldap.url</name>
+        <value></value>
+        <description>
+            LDAP connection URL
+        </description>
+    </property>
+
+    <property>
+        <name>hive.server2.authentication.ldap.security.protocol</name>
+        <value>ssl</value>
+        <description>
+            Its value is a string determined by the service provider (e.g. "ssl").
+            If this property is unspecified, the behaviour is determined by the service provider.
+            It's value will be directly passed as "java.naming.security.protocol"
+        </description>
+    </property>
+
+    <property>
+        <name>hive.server2.authentication.ldap.baseDN</name>
+        <value></value>
+        <description>
+            LDAP base DN
+        </description>
+    </property>
+
+    <property>
+        <name>hive.server2.authentication.ldap.Domain</name>
+        <value></value>
+        <description>
+            The ldap domin
+        </description>
+    </property>
+
+  <property>
+    <name>hive.server2.authentication</name>
+    <value>NONE</value>
+    <description>
+      Client authentication types.
+      NONE: no authentication check
+      LDAP: LDAP/AD based authentication
+      KERBEROS: Kerberos/GSSAPI authentication
+      CUSTOM: Custom authentication provider
+      (Use with property hive.server2.custom.authentication.class)
+      PAM: Pluggable authentication module.
+    </description>
+  </property>
+  
+<!--  -->
+<property>
+ <name>javax.jdo.option.ConnectionURL</name>
+   <value>jdbc:mysql://10.19.219.45:3306/hive_metastore?characterEncoding=UTF-8</value>
+</property>
+<property> 
+	<name>hive.server2.enable.doAs</name> 
+	<value>true</value> 
+</property>
+<property>
+  <name>javax.jdo.option.ConnectionDriverName</name>
+  <value>com.mysql.jdbc.Driver</value>
+</property>
+
+<property>
+  <name>javax.jdo.option.ConnectionUserName</name>
+  <value>mysql</value>
+</property>
+
+<property>
+  <name>javax.jdo.option.ConnectionPassword</name>
+  <value>mysql</value>
+</property>
+
+<property>
+  <name>hive.stats.autogather</name>
+  <value>false</value>
+</property>
+  
+<property>  
+  <name>mapred.compress.map.output</name>  
+  <value>true</value>  
+</property>  
+      
+<property>  
+  <name>mapred.output.compress</name>  
+  <value>true</value>  
+</property>  
+      
+<property>  
+  <name>hive.exec.compress.output</name>  
+  <value>true</value> 
+</property>  
+        
+<property>  
+  <name>hive.exec.compress.intermediate</name>  
+  <value>true</value> 
+</property>   
+
+<property>  
+  <name>mapred.output.compression.type</name>  
+  <value>BLOCK</value>  
+</property>  
+
+<property>
+  <name>mapred.max.split.size</name>
+  <value>256000000</value>
+</property>
+
+<property>
+  <name>mapred.min.split.size</name>
+  <value>10000000</value>
+</property>
+
+<property>
+  <name>hive.input.format</name>
+  <value>org.apache.hadoop.hive.ql.io.CombineHiveInputFormat</value>
+</property>
+
+<property>
+  <name>hive.optmize.mapjoin.mapreduce</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.optmize.bucketmapjoin</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.optmize.bucketmapjoin.sortedmerge</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.auto.convert.join</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.auto.convert.sortmerge.join.nocondi1onaltask</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.auto.convert.sortmerge.join</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.exec.parallel.thread.number</name>
+  <value>8</value>
+</property>
+
+<property>
+  <name>hive.exec.parallel</name>
+  <value>true</value>
+</property>
+
+<property> 
+  <name>datanucleus.fixedDatastore</name>
+  <value>false</value> 
+</property>
+
+<property>
+  <name>datanucleus.autoCreateSchema</name>
+  <value>true</value>
+</property>
+
+<property>  
+<name>datanucleus.autoCreateTables</name>  
+<value>true</value>  
+</property>  
+  
+<property>  
+<name>datanucleus.autoCreateColumns</name>  
+<value>true</value>  
+</property>
+
+<property>
+  <name>hive.fetch.task.conversion</name>
+  <value>more</value>
+</property>
+
+<property>
+  <name>hive.exec.reducers.bytes.per.reducer</name>
+  <value>300000000</value>
+</property>
+
+<property>
+  <name>mapred.reduce.slowstart.completed.maps</name>
+  <value>0.80</value>
+</property>
+
+<property>
+  <name>hive.exec.max.dynamic.partitions.pernode</name>
+  <value>1000</value>
+  <description>Maximum number of dynamic partitions allowed to be created in each mapper/reducer node.</description>
+</property>
+
+<property>
+  <name>hive.metastore.warehouse.dir</name>
+  <value>/user/${user.name}/hive/warehouse</value>
+</property>
+
+
+<property>
+  <name>hive.security.authorization.enabled</name>
+  <value>true</value>
+  <description>enable or disable the hive client authorization</description>
+</property>
+
+<property>
+  <name>hive.security.authorization.createtable.owner.grants</name>
+  <value>ALL</value>
+  <description>the privileges automatically granted to the owner whenever a table gets created.
+         An example like "select,drop" will grant select and drop privilege to the owner of the table</description>
+</property>
+<property>
+  <name>hive.exec.mode.local.auto.inputbytes.max</name>
+  <value>-1</value>
+</property>
+
+</configuration>
