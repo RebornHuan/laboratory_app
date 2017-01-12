@@ -33,6 +33,11 @@ package my.skypiea.punygod.algorithm.sorting;
 import my.skypiea.punygod.algorithm.StdIn;
 import my.skypiea.punygod.algorithm.StdOut;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+
 /**
  *  The <tt>Heap</tt> class provides a static methods for heapsorting
  *  an array.
@@ -118,6 +123,7 @@ public class Heap {
      * and prints them to standard output in ascending order.
      */
     public static void main(String[] args) {
+
         String[] a = StdIn.readAllStrings();
         Heap.sort(a);
         show(a);

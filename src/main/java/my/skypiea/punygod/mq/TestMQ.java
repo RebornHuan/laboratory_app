@@ -1,12 +1,15 @@
+/*
 package my.skypiea.punygod.mq;
 
+*/
 /**
  * *****************************
  * **      Just For           **
  * **             Puny God    **
  * *****************************
  * Created by Reborn on 2016/5/16.
- */
+ *//*
+
 
 import com.ibm.mq.MQC;
 import com.ibm.mq.MQEnvironment;
@@ -36,17 +39,17 @@ public class TestMQ {
         int openOptions = MQC.MQOO_INPUT_AS_Q_DEF | MQC.MQOO_OUTPUT | MQC.MQOO_INQUIRE;
         MQQueue queue = null;
         try {
-            //½¨Á¢Q1Í¨µÀµÄÁ¬½Ó
+            //ï¿½ï¿½ï¿½ï¿½Q1Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             queue = qMgr.accessQueue(queueString, openOptions, null, null, null);
-            MQMessage msg = new MQMessage();// ÒªÐ´Èë¶ÓÁÐµÄÏûÏ¢
+            MQMessage msg = new MQMessage();// ÒªÐ´ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ï¢
             msg.format = MQC.MQFMT_STRING;
             msg.characterSet = CCSID;
             msg.encoding = CCSID;
-            // msg.writeObject(msgStr); //½«ÏûÏ¢Ð´ÈëÏûÏ¢¶ÔÏóÖÐ
+            // msg.writeObject(msgStr); //ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             msg.writeString(msgStr);
             MQPutMessageOptions pmo = new MQPutMessageOptions();
-            msg.expiry = -1;    // ÉèÖÃÏûÏ¢ÓÃ²»¹ýÆÚ
-            queue.put(msg, pmo);// ½«ÏûÏ¢·ÅÈë¶ÓÁÐ
+            msg.expiry = -1;    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½
+            queue.put(msg, pmo);// ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -67,16 +70,16 @@ public class TestMQ {
         MQQueue queue = null;
         try {
             queue = qMgr.accessQueue(queueString, openOptions, null, null, null);
-            System.out.println("¸Ã¶ÓÁÐµ±Ç°µÄÉî¶ÈÎª:" + queue.getCurrentDepth());
+            System.out.println("ï¿½Ã¶ï¿½ï¿½Ðµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Îª:" + queue.getCurrentDepth());
             System.out.println("===========================");
             int depth = queue.getCurrentDepth();
-            //½«¶ÓÁÐµÄÀïµÄÏûÏ¢¶Á³öÀ´
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             while (depth-- > 0) {
-                MQMessage msg = new MQMessage();// Òª¶ÁµÄ¶ÓÁÐµÄÏûÏ¢
+                MQMessage msg = new MQMessage();// Òªï¿½ï¿½ï¿½Ä¶ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ï¢
                 MQGetMessageOptions gmo = new MQGetMessageOptions();
                 queue.get(msg, gmo);
-                System.out.println("ÏûÏ¢µÄ´óÐ¡Îª£º" + msg.getDataLength());
-                System.out.println("ÏûÏ¢µÄÄÚÈÝ£º\n" + msg.readStringOfByteLength(msg.getDataLength()));
+                System.out.println("ï¿½ï¿½Ï¢ï¿½Ä´ï¿½Ð¡Îªï¿½ï¿½" + msg.getDataLength());
+                System.out.println("ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½\n" + msg.readStringOfByteLength(msg.getDataLength()));
                 System.out.println("---------------------------");
             }
         } catch (Exception e) {
@@ -96,7 +99,8 @@ public class TestMQ {
 
     public static void main(String[] args) throws MQException {
         connect();
-      //  sendMsg("fuck Äã´óÒ¯µÄ");
+      //  sendMsg("fuck ï¿½ï¿½ï¿½Ò¯ï¿½ï¿½");
         receiveMsg();
     }
 }
+*/

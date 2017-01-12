@@ -1,50 +1,51 @@
 package my.skypiea.punygod;
 
 
-import com.google.common.base.Preconditions;
-import com.sun.tools.javac.code.Attribute;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Hello world!
  */
 public class App {
     public static void main(String[] args) {
+//
+//        InstrumentedSet<String> s = new InstrumentedSet<String>();
+//        s.addAll(Arrays.asList("wang","huan","mint"));
+//
+//        System.out.println(s.getAddCount());
 
-        FileType file = FileType.valueOfa(" ".trim());
+//        System.out.println(List<String>.class);
 
-        System.out.println(file);
 
     }
 
 
-    public enum FileType {
+    private static class InstrumentedSet<E> extends HashSet<E> {
+        private int addCount = 0;
 
-        PYTHON, SQL, JAR, XML, SHELL;
 
-
-        public static FileType valueOfa(String value) {
-           Preconditions.checkArgument(value != null, "file suffix can not be null");
-            value = value.toLowerCase();
-            switch (value) {
-                case ".py":
-                    return PYTHON;
-                case ".sql":
-                    return SQL;
-                case ".jar":
-                    return JAR;
-                case ".xml":
-                    return XML;
-                case ".sh":
-                    return SHELL;
-                case "":
-                    return SHELL;
-                default:
-                    throw new IllegalArgumentException("invalid FileType " + value);
-            }
+        @Override
+        public boolean add(E e) {
+            addCount++;
+            return super.add(e);
         }
 
+        @Override
+        public boolean addAll(Collection<? extends E> c) {
+
+            addCount += c.size();
+            return super.addAll(c);
+        }
+
+        public int getAddCount() {
+            return addCount;
+        }
+
+
     }
+
 }
