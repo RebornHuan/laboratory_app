@@ -7,8 +7,15 @@ import java.util.stream.LongStream;
  */
 public class Main {
     public static void main(String[] args) {
-        long[] numbers = LongStream.rangeClosed(1, 1000).toArray();
+        long[] numbers = LongStream.rangeClosed(1, 1000_000).toArray();
         Calculator calculator = new ForkJoinCalculator();
+
+
+        long start = System.nanoTime();
         System.out.println(calculator.sumUp(numbers)); // 打印结果500500
+        long duration = (System.nanoTime() - start) / 1_000_000;
+
+        System.out.println(duration);
+
     }
 }

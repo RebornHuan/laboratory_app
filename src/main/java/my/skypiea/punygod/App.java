@@ -11,6 +11,13 @@ import java.util.List;
  * Hello world!
  */
 public class App {
+
+    private static final int  RSLOCK     = 1;
+    private static final int  RSIGNAL    = 1 << 1;
+    private static final int  STARTED    = 1 << 2;
+    private static final int  STOP       = 1 << 29;
+    private static final int  TERMINATED = 1 << 30;
+    private static final int  SHUTDOWN   = 1 << 31;
     public static void main(String[] args) {
 //
 //        InstrumentedSet<String> s = new InstrumentedSet<String>();
@@ -19,6 +26,28 @@ public class App {
 //        System.out.println(s.getAddCount());
 
 //        System.out.println(List<String>.class);
+
+        System.out.println(RSLOCK);
+        System.out.println(RSIGNAL);
+        System.out.println(STARTED);
+        System.out.println(STOP);
+        System.out.println(TERMINATED);
+        System.out.println(SHUTDOWN);
+
+        System.out.println((RSLOCK|RSIGNAL)&RSLOCK);
+
+        int a=1;
+        int b=2;
+
+
+        System.out.println(++a>=b);
+
+        int n=4;
+        n<<=1;
+
+        System.out.println(n);
+
+
 
 
     }
