@@ -2,6 +2,7 @@ package my.skypiea.punygod.concurrentLib.forkJoin;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
+import java.util.stream.LongStream;
 
 /**
  * Created by punyGod on 17/1/12.
@@ -48,7 +49,9 @@ public class ForkJoinCalculator implements Calculator {
     }
 
     @Override
-    public long sumUp(long[] numbers) {
+    public long sumUp(long n) {
+        long[] numbers = LongStream.rangeClosed(1, n).toArray();
+
         return pool.invoke(new SumTask(numbers, 0, numbers.length - 1));
     }
 }

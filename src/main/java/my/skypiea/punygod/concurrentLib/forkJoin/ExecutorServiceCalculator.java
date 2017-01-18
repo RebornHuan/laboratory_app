@@ -6,6 +6,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.stream.LongStream;
 
 /**
  * Created by punyGod on 17/1/12.
@@ -41,7 +42,10 @@ public class ExecutorServiceCalculator implements Calculator {
     }
 
     @Override
-    public long sumUp(long[] numbers) {
+    public long sumUp(long n) {
+
+        long[] numbers = LongStream.rangeClosed(1, n).toArray();
+
         List<Future<Long>> results = new ArrayList<>();
 
         // 把任务分解为 n 份，交给 n 个线程处理
