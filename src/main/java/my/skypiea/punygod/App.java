@@ -48,6 +48,21 @@ public class App {
         System.out.println(n);
 
 
+        System.out.println(Integer.bitCount(32));
+
+        boolean aaa = true;
+        long bbb = 13;
+        long ccc = 0;
+        System.out.println(ccc <= bbb & aaa);
+
+
+        String s1="abcdefg";
+        String s2="abcdefg";
+
+        System.out.println(s1==s2);
+        System.out.println(s1.equals(s2));
+
+
 
 
     }
